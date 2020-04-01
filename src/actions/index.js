@@ -1,4 +1,4 @@
-const action = (type, payload = {}) => ({ type, ...payload })
+export const action = (type, payload = {}) => ({ type, ...payload })
 
-//export const EXAMPLE = 'EXAMPLE'
-//export const example_dataset = (data) => action(EXAMPLE, data)
+// 多國語系
+export * from './intl'

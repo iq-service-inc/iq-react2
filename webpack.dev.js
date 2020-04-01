@@ -4,7 +4,7 @@ const merge = require('webpack-merge'),
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         contentBase: './dist',
         port: 888,

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
-//import example from './example'
+import intl from './intl'
+
 
 
 export default (history) => combineReducers({
-    //example,
+    intl,
     router: connectRouter(history),
 })

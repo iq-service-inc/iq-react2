@@ -2,10 +2,11 @@ const merge = require('webpack-merge'),
     common = require('./webpack.common.js'),
     webpack = require('webpack'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
-    UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+    TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = merge(common, {
     mode: 'production',
+    devtool: false,
     output: {
         path: __dirname + '/dist/',
         filename: '[name].[chunkhash].js',
@@ -15,7 +16,7 @@ module.exports = merge(common, {
         new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': 'production'
+                'NODE_ENV': JSON.stringify('production')
             }
         })
     ],
@@ -23,7 +24,7 @@ module.exports = merge(common, {
     optimization: {
         //minimize: true,
         minimizer: [
-          new UglifyJsPlugin()
+            new TerserPlugin()
         ]
-      }
+    }
 })
